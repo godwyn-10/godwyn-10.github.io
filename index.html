@@ -152,7 +152,8 @@ form.lead input[type="text"] { font: inherit; padding: .75rem .85rem; border-rad
 form.lead .consent { display: flex; gap: .6rem; align-items: flex-start; font-weight: 400; font-size: .85rem; }
 form.lead .consent input { margin-top: .25rem; width: 1.1rem; height: 1.1rem; flex: none; }
 form.lead .err { color: #b3261e; font-size: .85rem; min-height: 1.2em; }
-.magnet a { color: var(--accent-ink); }
+.magnet a:not(.btn) { color: var(--accent-ink); }
+.magnet .btn-wa { color: #fff; }
 .thanks { display: grid; gap: .8rem; }
 .thanks .btns .btn-line { color: var(--accent-ink); border-color: var(--accent-ink); }
 
@@ -964,9 +965,10 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
         <p class="sw"><strong>Biashara huru.</strong> Godwin Vicent ni Mmiliki Huru wa Biashara ya Forever. Forever ni mwanachama wa Direct Selling Association. Hii ni tovuti binafsi, si tovuti ya Forever Living Products.</p>
         <p class="en">Forever products are nutritional and cosmetic products, not medicine. Results and experiences differ for every person. No income is promised or implied. See <a href="https://www.foreverliving.com/income" target="_blank" rel="noopener">foreverliving.com/income</a>.</p>
         <p class="sw">Bidhaa za Forever ni bidhaa za lishe na vipodozi, si dawa. Matokeo na uzoefu hutofautiana kwa kila mtu. Hakuna mapato yanayoahidiwa wala kudokezwa. Tazama <a href="https://www.foreverliving.com/income" target="_blank" rel="noopener">foreverliving.com/income</a>.</p>
-        <p class="en">If you request a guide, I collect your name and your WhatsApp number or email. I use them to send you the guide and to contact you about it and related information. I do not sell, rent or share your details with third parties. You can ask me to stop contacting you, or to delete your details, at any time.</p>
-        <p class="sw">Ukiomba mwongozo, nakusanya jina lako na namba yako ya WhatsApp au barua pepe. Navitumia kukutumia mwongozo na kuwasiliana nawe kuhusu mwongozo huo na taarifa zinazohusiana. Siuzi, sikodishi wala sishiriki taarifa zako na watu wengine. Unaweza kuniomba niache kuwasiliana nawe, au nifute taarifa zako, wakati wowote.</p>
-        <div class="ph"><span class="en">[Add: the tool that stores your contacts, how long you keep them, and your contact details. Check this wording against Tanzania's data protection requirements before launch.]</span><span class="sw">[Ongeza: zana inayohifadhi mawasiliano, muda wa kuyahifadhi, na mawasiliano yako. Hakiki maneno haya na mahitaji ya ulinzi wa taarifa binafsi Tanzania kabla ya kuzindua.]</span></div>
+        <p class="en">This website does not collect or store your contact details. It has no sign-up forms and no database. When you tap a WhatsApp button, you start a chat with me on WhatsApp. I can then see your WhatsApp number and the messages you send, and I use them only to reply to you and to share the information you asked for.</p>
+        <p class="sw">Tovuti hii haikusanyi wala kuhifadhi taarifa zako za mawasiliano. Haina fomu za kujisajili wala hifadhidata. Ukibofya kitufe cha WhatsApp, unaanzisha mazungumzo nami kwenye WhatsApp. Kisha naweza kuona namba yako ya WhatsApp na ujumbe unaonitumia, na ninavitumia tu kukujibu na kukushirikisha taarifa uliyoomba.</p>
+        <p class="en">I do not sell, rent or share your details with third parties. You can ask me to stop contacting you, or to delete our chat from my phone, at any time. WhatsApp has its own privacy policy, which applies to your use of WhatsApp.</p>
+        <p class="sw">Siuzi, sikodishi wala sishiriki taarifa zako na watu wengine. Unaweza kuniomba niache kuwasiliana nawe, au nifute mazungumzo yetu kwenye simu yangu, wakati wowote. WhatsApp ina sera yake ya faragha, inayohusu matumizi yako ya WhatsApp.</p>
       </div>
     </div>
   </div>
@@ -1062,7 +1064,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 <script>
 (function () {
   // WhatsApp numbers, international format without the plus sign.
-  var NUMBERS = { wellness: "255657417014", business: "255627717014", general: "255627717014", train: "255627717014", learn: "255627717014" };
+  var NUMBERS = { wellness: "255657417014", business: "255627717014", general: "255627717014", train: "255627717014", gw: "255657417014", gb: "255627717014", learn: "255627717014" };
   // Add your social media links here. Leave a link empty until it is ready.
   var SOCIAL = [
     { name: "Instagram", tag: ["Wellness", "Afya"], url: "https://www.instagram.com/rootcausehealthtz/" },
@@ -1071,6 +1073,8 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
     { name: "TikTok", tag: null, url: "" }
   ];
   var MSG = {
+    gw: { en: "Hi Godwin, I'd like the free Simple Daily Wellness Checklist. [W-GUIDE]", sw: "Habari Godwin, ningependa Orodha Rahisi ya Afya ya Kila Siku ya bure. [W-GUIDE]" },
+    gb: { en: "Hi Godwin, I'd like the free guide: What I Wish I Knew Before Starting Network Marketing. [B-GUIDE]", sw: "Habari Godwin, ningependa mwongozo wa bure: Ningependa Kujua Nini Kabla ya Kuanza Biashara ya Mtandao. [B-GUIDE]" },
     learn: { en: "LEARN", sw: "LEARN" },
     wellness: { en: "Hi Godwin, I came from your wellness page and I'd like to know more about the products. [W-WEB]", sw: "Habari Godwin, nimetoka kwenye ukurasa wako wa afya na ningependa kujua zaidi kuhusu bidhaa. [W-WEB]" },
     business: { en: "Hi Godwin, I came from your business page and I'd like to understand how the opportunity works. [B-WEB]", sw: "Habari Godwin, nimetoka kwenye ukurasa wako wa biashara na ningependa kuelewa jinsi fursa hii inavyofanya kazi. [B-WEB]" },
@@ -1145,34 +1149,8 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
   var formN = 0;
   document.querySelectorAll("[data-magnet]").forEach(function (m) {
     var host = m.querySelector("[data-form]");
-    var n = ++formN;
-    host.innerHTML =
-      '<form class="lead" novalidate>' +
-      '<label for="nm' + n + '">' + b("Your name", "Jina lako") + '<input type="text" id="nm' + n + '" autocomplete="name"></label>' +
-      '<label for="ct' + n + '">' + b("WhatsApp number or email", "Namba ya WhatsApp au barua pepe") + '<input type="text" id="ct' + n + '" autocomplete="off" inputmode="text"></label>' +
-      '<label class="consent" for="cs' + n + '"><input type="checkbox" id="cs' + n + '"><span>' + b("I agree that Godwin may contact me about this guide. I can ask to stop at any time.", "Nakubali Godwin awasiliane nami kuhusu mwongozo huu. Naweza kuomba aache wakati wowote.") + ' <a href="#legal">' + b("Privacy", "Faragha") + '</a></span></label>' +
-      '<div class="err" role="alert"></div>' +
-      '<button class="btn btn-accent" type="submit">' + b("Send me the guide", "Nitumie mwongozo") + '</button>' +
-      '</form>';
-    var form = host.querySelector("form");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var name = form.querySelector("#nm" + n).value.trim();
-      var contact = form.querySelector("#ct" + n).value.trim();
-      var ok = form.querySelector("#cs" + n).checked;
-      var err = form.querySelector(".err");
-      if (!name || !contact || !ok) {
-        err.innerHTML = b("Please add your name, a WhatsApp number or email, and tick the box.", "Tafadhali weka jina, namba ya WhatsApp au barua pepe, na uweke tiki kwenye kisanduku.");
-        return;
-      }
-      var safe = name.replace(/[<>&"]/g, "");
-      host.innerHTML = '<div class="thanks"><h3>' + b("Thank you, ", "Asante, ") + safe + '.</h3>' +
-        '<p>' + b("On the live site, your guide will reach you on the contact you gave.", "Kwenye tovuti halisi, mwongozo wako utakufikia kupitia mawasiliano uliyoyaweka.") + '</p>' +
-        '<p class="ph">Draft note: this form is not connected yet. Nothing was sent or saved.</p>' +
-        '<div class="btns"><a class="btn btn-wa" data-wa="' + (m.getAttribute("data-magnet")) + '" href="#">' + b("Continue on WhatsApp", "Endelea WhatsApp") + '</a>' +
-        '<a class="btn btn-line" href="#stories">' + b("Read a story", "Soma hadithi") + '</a></div></div>';
-      applyWA();
-    });
+    host.innerHTML = '<div class="btns"><a class="btn btn-wa" data-wa="' + (m.getAttribute("data-magnet") === "wellness" ? "gw" : "gb") + '" href="#">' + b("Get the free guide on WhatsApp", "Pata mwongozo wa bure WhatsApp") + '</a></div>' +
+      '<p class="small">' + b("No forms and no sign-up. Tap the button and send the message.", "Hakuna fomu wala kujisajili. Bofya kitufe na utume ujumbe.") + '</p>';
   });
 
   /* ---------- whatsapp ---------- */
