@@ -435,6 +435,15 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 /* closing call to action */
 .cta-end { background: var(--surface); border: 1px solid var(--line); border-radius: 1.2rem; overflow: hidden; max-width: 30rem; box-shadow: 0 .6rem 1.6rem rgba(6,78,59,.12); }
 .cta-end .cta-top { background: var(--deep); padding: 1.4rem 1rem; display: grid; justify-items: center; gap: .3rem; color: #F7F4EA; }
+.ebook-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.ebook { background: var(--surface); border: 1px solid var(--line); border-top: 5px solid var(--gold); border-radius: 1rem; overflow: hidden; display: grid; align-content: start; }
+.ebook img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: var(--gold-tint); }
+.ebook .eb-body { padding: 1rem 1.1rem 1.2rem; display: grid; gap: .5rem; }
+.ebook h3 { font-family: var(--font-serif); font-size: 1.25rem; color: var(--deep); font-weight: 400; }
+.ebook p { margin: 0; color: var(--muted); font-size: .94rem; }
+.ebook .price { font: 700 1.1rem var(--font-ui); color: var(--deep); }
+.eb-empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 1rem; padding: 1.2rem; color: var(--muted); }
+.ebstrip { background: var(--gold-tint); border: 2px solid var(--gold); border-radius: 1rem; padding: 1.3rem; display: grid; gap: .6rem; justify-items: start; }
 .btn-white { background: #fff; color: var(--deep); border: 2px solid var(--deep); }
 .btn-white:hover { background: #F7F4EA; }
 .scard .btns { margin-top: .3rem; }
@@ -566,6 +575,15 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
       <h2><span class="en">Recent stories</span><span class="sw">Hadithi za hivi karibuni</span></h2>
       <div class="story-grid" data-stories="home"></div>
       <div class="btns"><a class="btn btn-line" href="#stories"><span class="en">All stories</span><span class="sw">Hadithi zote</span></a></div>
+    </div>
+  </div>
+  <div class="wrap sec">
+    <div class="ebstrip">
+      <p class="eyebrow"><span class="en">Ebooks</span><span class="sw">Vitabu pepe</span></p>
+      <h2><span class="en">Read, learn, grow</span><span class="sw">Soma, jifunze, kua</span></h2>
+      <p class="en">Practical ebooks on mindset, habits and personal growth.</p>
+      <p class="sw">Vitabu pepe vya vitendo kuhusu mtazamo, mazoea na ukuaji binafsi.</p>
+      <div class="btns"><a class="btn btn-deep" href="#ebooks"><span class="en">See the ebooks &rarr;</span><span class="sw">Tazama vitabu pepe &rarr;</span></a></div>
     </div>
   </div>
   <div class="wrap sec">
@@ -965,6 +983,38 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 </section>
 
 <!-- LEGAL -->
+<!-- EBOOKS -->
+<section class="view" id="v-ebooks" data-ctx="ebooks" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="stack">
+      <p class="eyebrow"><span class="en">Ebooks</span><span class="sw">Vitabu pepe</span></p>
+      <h1><span class="en">Ebooks for personal growth</span><span class="sw">Vitabu pepe vya ukuaji binafsi</span></h1>
+      <p class="lead en">Short, practical reading on mindset, habits, discipline and growth. Written to be read in one sitting and put to use the same week.</p>
+      <p class="lead sw">Usomaji mfupi wa vitendo kuhusu mtazamo, mazoea, nidhamu na ukuaji. Umeandikwa usomwe kwa mkao mmoja na utumike wiki hiyohiyo.</p>
+    </div>
+  </div></div>
+  <div class="band" style="--accent: var(--gold)"></div>
+  <div class="wrap sec">
+    <div class="stack-lg">
+      <div class="magnet" data-cat="business">
+        <div class="stack">
+          <p class="eyebrow"><span class="en">Free ebook</span><span class="sw">Kitabu pepe cha bure</span></p>
+          <h2><span class="en">Get a free ebook on WhatsApp</span><span class="sw">Pata kitabu pepe cha bure WhatsApp</span></h2>
+          <p class="en">Send me the word EBOOK on WhatsApp and I'll share a free ebook with you. No forms and no sign-up.</p>
+          <p class="sw">Nitumie neno EBOOK WhatsApp nami nitakushirikisha kitabu pepe cha bure. Hakuna fomu wala kujisajili.</p>
+        </div>
+        <div><div class="btns"><a class="btn btn-wa" data-wa="ebook" href="#"><span class="en">Send EBOOK on WhatsApp</span><span class="sw">Tuma EBOOK WhatsApp</span></a></div></div>
+      </div>
+      <div class="stack">
+        <h2><span class="en">Ebooks to buy</span><span class="sw">Vitabu pepe vya kununua</span></h2>
+        <div class="ebook-grid" id="ebook-list"></div>
+        <p class="small en">Payments are processed by Snippe, which supports mobile money and other payment methods. This site does not store any payment details. If you need help with an order, message me on WhatsApp.</p>
+        <p class="small sw">Malipo yanashughulikiwa na Snippe, inayokubali pesa ya simu na njia nyingine za malipo. Tovuti hii haihifadhi taarifa zozote za malipo. Ukihitaji msaada wa agizo, nitumie ujumbe WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="view" id="v-legal" data-ctx="general" hidden>
   <div class="hero"><div class="wrap">
     <div class="stack"><h1><span class="en">Disclaimers and privacy</span><span class="sw">Tahadhari na faragha</span></h1></div>
@@ -991,8 +1041,8 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
         <p class="sw">Bidhaa za Forever ni bidhaa za lishe na vipodozi, si dawa. Matokeo na uzoefu hutofautiana kwa kila mtu. Hakuna mapato yanayoahidiwa wala kudokezwa. Tazama <a href="https://www.foreverliving.com/income" target="_blank" rel="noopener">foreverliving.com/income</a>.</p>
         <p class="en">This website does not collect or store your contact details. It has no sign-up forms and no database. When you tap a WhatsApp button, you start a chat with me on WhatsApp. I can then see your WhatsApp number and the messages you send, and I use them only to reply to you and to share the information you asked for.</p>
         <p class="sw">Tovuti hii haikusanyi wala kuhifadhi taarifa zako za mawasiliano. Haina fomu za kujisajili wala hifadhidata. Ukibofya kitufe cha WhatsApp, unaanzisha mazungumzo nami kwenye WhatsApp. Kisha naweza kuona namba yako ya WhatsApp na ujumbe unaonitumia, na ninavitumia tu kukujibu na kukushirikisha taarifa uliyoomba.</p>
-        <p class="en">I do not sell, rent or share your details with third parties. You can ask me to stop contacting you, or to delete our chat from my phone, at any time. WhatsApp has its own privacy policy, which applies to your use of WhatsApp.</p>
-        <p class="sw">Siuzi, sikodishi wala sishiriki taarifa zako na watu wengine. Unaweza kuniomba niache kuwasiliana nawe, au nifute mazungumzo yetu kwenye simu yangu, wakati wowote. WhatsApp ina sera yake ya faragha, inayohusu matumizi yako ya WhatsApp.</p>
+        <p class="en">If you buy an ebook, the payment is handled by Snippe on its own payment page, and I do not see or store your card or mobile money details. I do not sell, rent or share your details with third parties. You can ask me to stop contacting you, or to delete our chat from my phone, at any time. WhatsApp has its own privacy policy, which applies to your use of WhatsApp.</p>
+        <p class="sw">Ukinunua kitabu pepe, malipo yanashughulikiwa na Snippe kwenye ukurasa wake wa malipo, na siioni wala kuhifadhi taarifa zako za kadi au pesa ya simu. Siuzi, sikodishi wala sishiriki taarifa zako na watu wengine. Unaweza kuniomba niache kuwasiliana nawe, au nifute mazungumzo yetu kwenye simu yangu, wakati wowote. WhatsApp ina sera yake ya faragha, inayohusu matumizi yako ya WhatsApp.</p>
       </div>
     </div>
   </div>
@@ -1015,6 +1065,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
           <li><a href="#wellness"><span class="en">Wellness</span><span class="sw">Afya</span></a></li>
           <li><a href="#business"><span class="en">Business</span><span class="sw">Biashara</span></a></li>
           <li><a href="#training"><span class="en">Training</span><span class="sw">Mafunzo</span></a></li>
+          <li><a href="#ebooks"><span class="en">Ebooks</span><span class="sw">Vitabu pepe</span></a></li>
           <li><a href="https://255200047053.fbo.foreverliving.com" target="_blank" rel="noopener"><span class="en">Order from Forever (outside Tanzania)</span><span class="sw">Agiza kwa Forever (nje ya Tanzania)</span></a></li>
           <li><a href="#stories"><span class="en">Stories</span><span class="sw">Hadithi</span></a></li>
           <li><a href="#about"><span class="en">About</span><span class="sw">Kunihusu</span></a></li>
@@ -1089,7 +1140,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 <script>
 (function () {
   // WhatsApp numbers, international format without the plus sign.
-  var NUMBERS = { wellness: "255657417014", business: "255627717014", general: "255627717014", train: "255627717014", gw: "255657417014", gb: "255627717014", learn: "255627717014" };
+  var NUMBERS = { wellness: "255657417014", business: "255627717014", general: "255627717014", train: "255627717014", gw: "255657417014", gb: "255627717014", learn: "255627717014", ebook: "255627717014" };
   // Add your social media links here. Leave a link empty until it is ready.
   var SOCIAL = [
     { name: "Instagram", tag: ["Wellness", "Afya"], url: "https://www.instagram.com/rootcausehealthtz/" },
@@ -1103,6 +1154,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
     gw: { en: "Hi Godwin, I'd like the free Simple Daily Wellness Checklist. [W-GUIDE]", sw: "Habari Godwin, ningependa Orodha Rahisi ya Afya ya Kila Siku ya bure. [W-GUIDE]" },
     gb: { en: "Hi Godwin, I'd like the free guide: What I Wish I Knew Before Starting Network Marketing. [B-GUIDE]", sw: "Habari Godwin, ningependa mwongozo wa bure: Ningependa Kujua Nini Kabla ya Kuanza Biashara ya Mtandao. [B-GUIDE]" },
     learn: { en: "LEARN", sw: "LEARN" },
+    ebook: { en: "EBOOK", sw: "EBOOK" },
     wellness: { en: "Hi Godwin, I came from your wellness page and I'd like to know more about the products. [W-WEB]", sw: "Habari Godwin, nimetoka kwenye ukurasa wako wa afya na ningependa kujua zaidi kuhusu bidhaa. [W-WEB]" },
     business: { en: "Hi Godwin, I came from your business page and I'd like to understand how the opportunity works. [B-WEB]", sw: "Habari Godwin, nimetoka kwenye ukurasa wako wa biashara na ningependa kuelewa jinsi fursa hii inavyofanya kazi. [B-WEB]" },
     train: { en: "Hi Godwin, I'd like to join your training and mentoring. [B-TRAIN]", sw: "Habari Godwin, ningependa kujiunga na mafunzo na ushauri wako. [B-TRAIN]" },
@@ -1215,8 +1267,25 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
   document.getElementById("lang-en").addEventListener("click", function () { setLang("en"); });
   document.getElementById("lang-sw").addEventListener("click", function () { setLang("sw"); });
 
+  /* ---------- ebooks (fill this list; leave it empty until an ebook is ready) ---------- */
+  // Each ebook: { title: ["English", "Swahili"], desc: ["English", "Swahili"], price: "TZS 10,000", url: "your Snippe payment link", image: "img/ebook-1.jpg" (optional) }
+  var EBOOKS = [];
+  function renderEbooks() {
+    var el = document.getElementById("ebook-list");
+    if (!el) return;
+    if (!EBOOKS.length) {
+      el.innerHTML = '<div class="eb-empty">' + b("New ebooks are on the way. Send me EBOOK on WhatsApp above and I'll tell you when they are ready.", "Vitabu vipya vinakuja. Nitumie EBOOK WhatsApp hapo juu nami nitakuambia vitakapokuwa tayari.") + '</div>';
+      return;
+    }
+    el.innerHTML = EBOOKS.map(function (e) {
+      return '<article class="ebook">' + (e.image ? '<img src="' + e.image + '" alt="" loading="lazy">' : '') +
+        '<div class="eb-body"><h3>' + b(e.title[0], e.title[1]) + '</h3><p>' + b(e.desc[0], e.desc[1]) + '</p>' +
+        (e.price ? '<span class="price">' + e.price + '</span>' : '') +
+        '<div class="btns"><a class="btn btn-deep" href="' + e.url + '" target="_blank" rel="noopener">' + b("Buy now", "Nunua sasa") + '</a></div></div></article>';
+    }).join("");
+  }
   /* ---------- routing by #hash ---------- */
-  var VIEWS = ["home", "wellness", "business", "training", "stories", "about", "legal"];
+  var VIEWS = ["home", "wellness", "business", "training", "stories", "about", "ebooks", "legal"];
   var SUBS = { course: "training", quiz: "training", progress: "training" };
   function route() {
     var h = (location.hash || "").replace("#", "");
@@ -1240,6 +1309,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
     if (target) target.scrollIntoView(); else window.scrollTo(0, 0);
   }
   window.addEventListener("hashchange", route);
+  renderEbooks();
 
   /* ---------- links to fill in ---------- */
   var YT = { business: "https://youtube.com/@godwinvicent4695", wellness: "https://youtube.com/@slimvibes-f3x" };
