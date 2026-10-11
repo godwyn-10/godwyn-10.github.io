@@ -444,6 +444,23 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 .ebook .price { font: 700 1.1rem var(--font-ui); color: var(--deep); }
 .eb-empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 1rem; padding: 1.2rem; color: var(--muted); }
 .ebstrip { background: var(--gold-tint); border: 2px solid var(--gold); border-radius: 1rem; padding: 1.3rem; display: grid; gap: .6rem; justify-items: start; }
+.ads { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.ad { position: relative; overflow: hidden; display: grid; gap: .55rem; align-content: start; padding: 1.3rem 1.3rem 1.2rem; border-radius: 1.1rem; text-decoration: none; min-height: 13rem; box-shadow: 0 .5rem 1.2rem rgba(6,78,59,.14); }
+.ad::after { content: ""; position: absolute; right: -2.2rem; bottom: -2.2rem; width: 8rem; height: 8rem; border-radius: 50%; background: rgba(255,255,255,.12); pointer-events: none; }
+.ad h3 { font: 400 1.35rem/1.2 var(--font-serif); letter-spacing: 0; }
+.ad p { margin: 0; font-size: .93rem; line-height: 1.5; }
+.ad-tag { justify-self: start; font: 700 .62rem var(--font-ui); letter-spacing: .16em; text-transform: uppercase; padding: .3rem .6rem; border-radius: 999px; }
+.ad-go { margin-top: .4rem; justify-self: start; font: 700 .78rem var(--font-ui); letter-spacing: .08em; text-transform: uppercase; padding: .65rem 1.1rem; border-radius: 999px; }
+.ad-ebook { background: linear-gradient(150deg, #F7ECC9 0%, #E9CF8E 100%); border: 2px solid var(--gold); color: var(--ink); }
+.ad-ebook h3 { color: var(--deep); } .ad-ebook p { color: #4d4b42; }
+.ad-ebook .ad-tag { background: var(--deep); color: #F7F4EA; } .ad-ebook .ad-go { background: var(--deep); color: #F7F4EA; }
+.ad-well { background: linear-gradient(150deg, #009B63 0%, #064E3B 100%); color: #F7F4EA; }
+.ad-well h3 { color: #fff; } .ad-well p { color: #e3efe8; }
+.ad-well .ad-tag { background: rgba(255,255,255,.18); color: #fff; } .ad-well .ad-go { background: #fff; color: var(--deep); }
+.ad-biz { background: linear-gradient(150deg, #0b3d30 0%, #111 100%); color: #F7F4EA; border-bottom: 5px solid var(--gold); }
+.ad-biz h3 { color: #fff; } .ad-biz p { color: #d8d8cf; }
+.ad-biz .ad-tag { background: var(--gold); color: #111; } .ad-biz .ad-go { background: var(--gold); color: #111; }
+.ad:hover { transform: translateY(-2px); }
 .btn-white { background: #fff; color: var(--deep); border: 2px solid var(--deep); }
 .btn-white:hover { background: #F7F4EA; }
 .scard .btns { margin-top: .3rem; }
@@ -511,6 +528,12 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
           <p class="sw">Safari yangu, kinachohitajika kweli katika biashara hii, na jinsi watu tofauti wanavyoipitia.</p>
           <span class="go"><span class="en">Go to Business →</span><span class="sw">Nenda kwenye Biashara →</span></span>
         </a>
+      
+      <div class="ads">
+        <a class="ad ad-ebook" href="#ebooks"><span class="ad-tag"><span class="en">Ebooks</span><span class="sw">Vitabu pepe</span></span><h3><span class="en">Read, learn, grow</span><span class="sw">Soma, jifunze, kua</span></h3><p class="en">Practical ebooks on mindset, habits and personal growth. Get a free one on WhatsApp.</p><p class="sw">Vitabu pepe vya vitendo kuhusu mtazamo, mazoea na ukuaji binafsi. Pata kimoja cha bure WhatsApp.</p><span class="ad-go"><span class="en">See the ebooks &rarr;</span><span class="sw">Tazama vitabu pepe &rarr;</span></span></a>
+        <a class="ad ad-well" data-wa="gw" href="#"><span class="ad-tag"><span class="en">Free guide &middot; Wellness</span><span class="sw">Mwongozo wa bure &middot; Afya</span></span><h3><span class="en">Simple Daily Wellness Checklist</span><span class="sw">Orodha Rahisi ya Afya ya Kila Siku</span></h3><p class="en">A one-page checklist of daily habits: food, water, movement and rest.</p><p class="sw">Orodha ya ukurasa mmoja ya mazoea ya kila siku: chakula, maji, mazoezi na mapumziko.</p><span class="ad-go"><span class="en">Get it on WhatsApp &rarr;</span><span class="sw">Ipate WhatsApp &rarr;</span></span></a>
+        <a class="ad ad-biz" data-wa="gb" href="#"><span class="ad-tag"><span class="en">Free guide &middot; Business</span><span class="sw">Mwongozo wa bure &middot; Biashara</span></span><h3><span class="en">What I Wish I Knew Before Starting Network Marketing</span><span class="sw">Ningependa Kujua Nini Kabla ya Kuanza Biashara ya Mtandao</span></h3><p class="en">An honest guide for anyone thinking about starting.</p><p class="sw">Mwongozo wa kweli kwa yeyote anayefikiria kuanza.</p><span class="ad-go"><span class="en">Get it on WhatsApp &rarr;</span><span class="sw">Upate WhatsApp &rarr;</span></span></a>
+      </div>
       </div>
     </div>
   </div>
@@ -577,14 +600,6 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
       <div class="btns"><a class="btn btn-line" href="#stories"><span class="en">All stories</span><span class="sw">Hadithi zote</span></a></div>
     </div>
   </div>
-  <div class="wrap sec">
-    <div class="ebstrip">
-      <p class="eyebrow"><span class="en">Ebooks</span><span class="sw">Vitabu pepe</span></p>
-      <h2><span class="en">Read, learn, grow</span><span class="sw">Soma, jifunze, kua</span></h2>
-      <p class="en">Practical ebooks on mindset, habits and personal growth.</p>
-      <p class="sw">Vitabu pepe vya vitendo kuhusu mtazamo, mazoea na ukuaji binafsi.</p>
-      <div class="btns"><a class="btn btn-deep" href="#ebooks"><span class="en">See the ebooks &rarr;</span><span class="sw">Tazama vitabu pepe &rarr;</span></a></div>
-    </div>
   </div>
   <div class="wrap sec">
     <div class="cta-end">
@@ -1013,6 +1028,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
       </div>
     </div>
   </div>
+  <div class="wrap sec"><div class="share" data-share></div></div>
 </section>
 
 <section class="view" id="v-legal" data-ctx="general" hidden>
@@ -1318,7 +1334,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
     if (!k) { var v = el.closest(".view"); k = v && v.getAttribute("data-path") === "wellness" ? "wellness" : "business"; }
     return YT[k] || YT.business;
   }
-  var SITE_URL = "";  // your website address once it is live, e.g. https://godwinvicent.com
+  var SITE_URL = "https://godwyn-10.github.io/";  // your website address once it is live, e.g. https://godwinvicent.com
 
   /* ---------- real people: videos and photos ----------
      Add one entry per person, only with their written permission.
@@ -1357,19 +1373,29 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 
   /* ---------- share and YouTube ---------- */
   function siteUrl() { return SITE_URL || location.href.split("#")[0]; }
+  function pageKey(el) { var v = el && el.closest ? el.closest(".view") : null; return v ? v.id.replace("v-", "") : "home"; }
+  function pageUrl(el) { var k = pageKey(el); return siteUrl() + (k === "home" ? "" : "#" + k); }
+  var SHARE_TXT = {
+    wellness: ["Take a look at Godwin Vicent's wellness page: ", "Angalia ukurasa wa afya wa Godwin Vicent: "],
+    business: ["Take a look at Godwin Vicent's business page: ", "Angalia ukurasa wa biashara wa Godwin Vicent: "],
+    ebooks: ["Take a look at Godwin Vicent's ebooks: ", "Angalia vitabu pepe vya Godwin Vicent: "],
+    training: ["Take a look at Godwin Vicent's training: ", "Angalia mafunzo ya Godwin Vicent: "],
+    stories: ["Read these real stories on Godwin Vicent's website: ", "Soma hadithi hizi halisi kwenye tovuti ya Godwin Vicent: "],
+    home: ["Take a look at Godwin Vicent's website on health and entrepreneurship: ", "Angalia tovuti ya Godwin Vicent kuhusu afya na ujasiriamali: "]
+  };
   function renderShare() {
     document.querySelectorAll("[data-share]").forEach(function (el, i) {
       var id = "sh" + i;
       el.innerHTML = '<h3>' + b("Help more people find this", "Wasaidie watu zaidi kuiona") + '</h3>' +
         '<p>' + b("Know someone who would enjoy this? Share it. Honest word of mouth is the best exposure.", "Unamjua mtu ambaye angependa hili? Mshirikishe. Mdomo kwa mdomo wa kweli ndiyo njia bora ya kujulikana.") + '</p>' +
-        '<div class="linkrow"><input type="text" id="' + id + '" readonly value="' + siteUrl() + '" aria-label="Website link">' +
+        '<div class="linkrow"><input type="text" id="' + id + '" readonly value="' + pageUrl(el) + '" aria-label="Page link">' +
         '<button type="button" class="btn btn-accent" data-copy="' + id + '">' + b("Copy link", "Nakili kiungo") + '</button></div>' +
         '<div class="btns"><a class="btn btn-wa" data-sharewa href="#" target="_blank" rel="noopener">' + b("Share on WhatsApp", "Shiriki WhatsApp") + '</a>' +
         '<span data-yt></span></div>';
     });
     document.querySelectorAll("[data-sharewa]").forEach(function (a) {
-      var t = lang === "sw" ? "Angalia tovuti ya Godwin Vicent kuhusu afya na ujasiriamali: " : "Take a look at Godwin Vicent's website on health and entrepreneurship: ";
-      a.href = "https://wa.me/?text=" + encodeURIComponent(t + siteUrl());
+      var k = pageKey(a), t = (SHARE_TXT[k] || SHARE_TXT.home)[lang === "sw" ? 1 : 0];
+      a.href = "https://wa.me/?text=" + encodeURIComponent(t + pageUrl(a));
     });
     document.querySelectorAll("[data-yt]").forEach(function (el) {
       el.innerHTML = '<a class="btn btn-line" href="' + ytFor(el) + '" target="_blank" rel="noopener">' + b("YouTube channel", "Chaneli ya YouTube") + '</a>';
