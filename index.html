@@ -462,6 +462,9 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 .ad-biz { background: linear-gradient(150deg, #0b3d30 0%, #111 100%); color: #F7F4EA; border-bottom: 5px solid var(--gold); }
 .ad-biz h3 { color: #fff; } .ad-biz p { color: #d8d8cf; }
 .ad-biz .ad-tag { background: var(--gold); color: #111; } .ad-biz .ad-go { background: var(--gold); color: #111; }
+.ads { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: .2rem .2rem 1rem; margin-inline: -.2rem; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+.ads .ad { flex: 0 0 min(80%, 19rem); scroll-snap-align: start; min-height: 0; }
+@media (min-width: 900px) { .ads .ad { flex: 1 1 0; } }
 .ad:hover { transform: translateY(-2px); }
 .btn-white { background: #fff; color: var(--deep); border: 2px solid var(--deep); }
 .btn-white:hover { background: #F7F4EA; }
