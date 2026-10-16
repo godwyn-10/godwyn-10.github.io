@@ -469,7 +469,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 .gv-logo.gv-big { height: 5.4rem; }
 .gv-logo.gv-foot { height: 3.6rem; --mark: #D4A84F; margin-bottom: .8rem; }
 /* ===== Ebooks page: the architect's drafting table ===== */
-#eb-shop, #eb-how { scroll-margin-top: 8rem; }
+#eb-shop, #eb-how, #eb-pay { scroll-margin-top: 8rem; }
 
 /* hero */
 .ebh { position: relative; overflow: hidden; background: linear-gradient(165deg, #FCF5DF 0%, #F6E9C9 55%, #EEDDBA 100%); }
@@ -583,7 +583,8 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 .eb-pay-k { font: 600 .9rem var(--font-ui); color: var(--muted); }
 .eb-pay-n { font: 400 clamp(1.7rem, 7vw, 2.3rem)/1.1 var(--font-serif); color: var(--deep); letter-spacing: .04em; overflow-wrap: anywhere; }
 .eb-copy.copied { background: var(--deep); color: #fff; }
-.eb-pay-name { margin: 0; }
+.eb-pay-nm { font: 700 .82rem var(--font-ui) !important; letter-spacing: .08em; color: var(--gold-ink); }
+.eb-sel { margin: 0; font-weight: 700; color: var(--deep); background: var(--gold-tint); border-radius: .6rem; padding: .6rem .8rem; }
 .eb-reviews { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
 .eb-review { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 1.2rem; display: grid; gap: .6rem; }
 .eb-review blockquote { margin: 0; font: 400 1.05rem/1.55 var(--font-serif); color: var(--ink); }
@@ -1186,8 +1187,8 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
     <div class="stack-lg">
       <div class="stack">
         <h2><span class="en">Choose your ebook</span><span class="sw">Chagua kitabu chako pepe</span></h2>
-        <p class="en">Two separate ebooks, each with its own price. Tap Buy now and your order opens in WhatsApp.</p>
-        <p class="sw">Vitabu pepe viwili tofauti, kila kimoja na bei yake. Bonyeza Nunua sasa na agizo lako litafunguka WhatsApp.</p>
+        <p class="en">Two separate ebooks, each with its own price. Tap Buy now to see how to pay.</p>
+        <p class="sw">Vitabu pepe viwili tofauti, kila kimoja na bei yake. Bonyeza Nunua sasa kuona jinsi ya kulipa.</p>
       </div>
       <div class="eb-list" id="ebook-list"></div>
       <div id="eb-bundle"></div>
@@ -1206,38 +1207,40 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
       <ol class="eb-steps">
         <li>
           <h3><span class="en">Tap Buy now</span><span class="sw">Bonyeza Nunua sasa</span></h3>
-          <p class="en">Choose your ebook. WhatsApp opens with your order already written. Send it to me.</p>
-          <p class="sw">Chagua kitabu pepe chako. WhatsApp itafunguka na agizo lako likiwa limeandikwa tayari. Nitumie.</p>
+          <p class="en">Choose your ebook. You go straight to the payment details with your price ready.</p>
+          <p class="sw">Chagua kitabu pepe chako. Utapelekwa moja kwa moja kwenye maelezo ya malipo na bei yako ikiwa tayari.</p>
         </li>
         <li>
           <h3><span class="en">Pay</span><span class="sw">Lipa</span></h3>
-          <p class="en">Pay the exact price using Lipa Namba (Vodacom) or Selcom Pesa. The details are just below. Check that the name shows GODWIN VICENT NNKO before you confirm.</p>
-          <p class="sw">Lipa bei kamili kwa Lipa Namba (Vodacom) au Selcom Pesa. Maelezo yako hapo chini. Hakikisha jina linaonyesha GODWIN VICENT NNKO kabla ya kuthibitisha.</p>
+          <p class="en">Pay the exact price using Lipa Namba (Vodacom) or Selcom Pesa. Check that the name shows GODWIN VICENT NNKO before you confirm.</p>
+          <p class="sw">Lipa bei kamili kwa Lipa Namba (Vodacom) au Selcom Pesa. Hakikisha jina linaonyesha GODWIN VICENT NNKO kabla ya kuthibitisha.</p>
         </li>
         <li>
-          <h3><span class="en">Send proof, get your ebook</span><span class="sw">Tuma uthibitisho, pokea kitabu</span></h3>
-          <p class="en">Send me the payment message on WhatsApp. I confirm it and send you the ebook.</p>
-          <p class="sw">Nitumie ujumbe wa malipo WhatsApp. Nitauthibitisha kisha nikutumie kitabu pepe.</p>
+          <h3><span class="en">Come to WhatsApp</span><span class="sw">Njoo WhatsApp</span></h3>
+          <p class="en">After you pay, message me on WhatsApp with your payment message. I confirm it, send your copy and start your guidance if your ebook includes it.</p>
+          <p class="sw">Baada ya kulipa, nitumie ujumbe wa malipo WhatsApp. Nitauthibitisha, nikutumie nakala yako na kuanza mwongozo wako kama kitabu chako kinao.</p>
         </li>
       </ol>
-      <div class="eb-pay">
+      <div class="eb-pay" id="eb-pay">
         <h3><span class="en">Payment details</span><span class="sw">Maelezo ya malipo</span></h3>
+        <p class="eb-sel" id="eb-sel"></p>
         <div class="eb-pay-grid">
           <div class="eb-pay-card">
             <p class="eb-pay-k"><span class="en">Lipa Namba (Vodacom)</span><span class="sw">Lipa Namba (Vodacom)</span></p>
             <p class="eb-pay-n">37729995</p>
+            <p class="eb-pay-nm">GODWIN VICENT NNKO</p>
             <button type="button" class="btn btn-line eb-copy" data-copy="37729995"><span class="en">Copy number</span><span class="sw">Nakili namba</span></button>
           </div>
           <div class="eb-pay-card">
             <p class="eb-pay-k"><span class="en">Selcom Pesa</span><span class="sw">Selcom Pesa</span></p>
             <p class="eb-pay-n">0769 348 729</p>
+            <p class="eb-pay-nm">GODWIN VICENT NNKO</p>
             <button type="button" class="btn btn-line eb-copy" data-copy="0769348729"><span class="en">Copy number</span><span class="sw">Nakili namba</span></button>
           </div>
         </div>
-        <p class="eb-pay-name"><span class="en">Account name for both: <strong>GODWIN VICENT NNKO</strong></span><span class="sw">Jina la akaunti kwa zote mbili: <strong>GODWIN VICENT NNKO</strong></span></p>
-        <p class="small en">Only pay after you have messaged me, and only to the numbers on this page. If the name does not match, stop and message me.</p>
-        <p class="small sw">Lipa tu baada ya kunitumia ujumbe, na kwa namba zilizo kwenye ukurasa huu tu. Jina likitofautiana, simama na unitumie ujumbe.</p>
-        <div class="btns"><a class="btn btn-wa" data-wa="ebook-paid" href="#"><span class="en">I have paid, send proof</span><span class="sw">Nimelipa, tuma uthibitisho</span></a></div>
+        <p class="small en">Only pay to the numbers on this page. If the name does not match, stop and message me.</p>
+        <p class="small sw">Lipa kwa namba zilizo kwenye ukurasa huu tu. Jina likitofautiana, simama na unitumie ujumbe.</p>
+        <div class="btns"><a class="btn btn-wa" data-wa="ebook-paid" href="#"><span class="en">I have paid, take me to WhatsApp</span><span class="sw">Nimelipa, nipeleke WhatsApp</span></a></div>
       </div>
     </div>
   </div>
@@ -1283,8 +1286,8 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
         </details>
         <details class="faq">
           <summary><span class="en">How do I pay?</span><span class="sw">Nalipaje?</span></summary>
-          <p class="en">Message me first with Buy now. Then pay the exact price to Lipa Namba 37729995 (Vodacom) or Selcom Pesa 0769348729. The name is GODWIN VICENT NNKO. Send me the payment message and I will send your ebook.</p>
-          <p class="sw">Kwanza nitumie ujumbe kwa Nunua sasa. Kisha lipa bei kamili kwa Lipa Namba 37729995 (Vodacom) au Selcom Pesa 0769348729. Jina ni GODWIN VICENT NNKO. Nitumie ujumbe wa malipo nami nitakutumia kitabu pepe.</p>
+          <p class="en">Tap Buy now to see the payment details. Pay the exact price to Lipa Namba 37729995 (Vodacom) or Selcom Pesa 0769348729. The name is GODWIN VICENT NNKO on both. Then message me on WhatsApp with your payment message and I will send your ebook.</p>
+          <p class="sw">Bonyeza Nunua sasa kuona maelezo ya malipo. Lipa bei kamili kwa Lipa Namba 37729995 (Vodacom) au Selcom Pesa 0769348729. Jina ni GODWIN VICENT NNKO kwa zote mbili. Kisha nitumie ujumbe wa malipo WhatsApp nami nitakutumia kitabu pepe.</p>
         </details>
         <details class="faq">
           <summary><span class="en">Can I buy from outside Tanzania?</span><span class="sw">Naweza kununua nikiwa nje ya Tanzania?</span></summary>
@@ -1292,9 +1295,9 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
           <p class="sw">Nitumie ujumbe WhatsApp uniambie ulipo. Nitakusaidia kupata njia ya kulipa.</p>
         </details>
         <details class="faq">
-          <summary><span class="en">What is the 7 days of personal guidance?</span><span class="sw">Mwongozo binafsi wa siku 7 ni nini?</span></summary>
-          <p class="en">Siri Kamili ya Kupoteza Uzito includes 7 days of personal guidance from me on WhatsApp. After the 7 days, continued guidance is optional and paid separately. Message me if you want it.</p>
-          <p class="sw">Siri Kamili ya Kupoteza Uzito inajumuisha mwongozo binafsi kutoka kwangu kwa siku 7 kupitia WhatsApp. Baada ya siku 7, kuendelea kuongozwa ni hiari na hulipiwa tofauti. Nitumie ujumbe ukitaka.</p>
+          <summary><span class="en">What is the 5 days of personal guidance?</span><span class="sw">Mwongozo binafsi wa siku 5 ni nini?</span></summary>
+          <p class="en">Siri Kamili ya Kupoteza Uzito includes 5 days of personal guidance from me on WhatsApp. After the 5 days, continued guidance is optional and paid separately. Message me if you want it.</p>
+          <p class="sw">Siri Kamili ya Kupoteza Uzito inajumuisha mwongozo binafsi kutoka kwangu kwa siku 5 kupitia WhatsApp. Baada ya siku 5, kuendelea kuongozwa ni hiari na hulipiwa tofauti. Nitumie ujumbe ukitaka.</p>
         </details>
         <details class="faq">
           <summary><span class="en">Which ebook should I start with?</span><span class="sw">Nianze na kitabu pepe kipi?</span></summary>
@@ -1606,7 +1609,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
         ["Eating habits explained step by step", "Tabia za kula zilizoelezwa hatua kwa hatua"],
         ["A 30-day plan to build the routine, and the mindset to stay consistent", "Mpango wa siku 30 wa kujenga ratiba, na mtazamo wa kuendelea"]
       ],
-      perk: ["Includes 7 days of personal guidance from Godwin on WhatsApp. After day 7, continued guidance is optional and paid separately.", "Inajumuisha mwongozo binafsi wa siku 7 kutoka kwa Godwin kupitia WhatsApp. Baada ya siku 7, kuendelea kuongozwa ni hiari na hulipiwa tofauti."],
+      perk: ["Includes 5 days of personal guidance from Godwin on WhatsApp. After day 5, continued guidance is optional and paid separately.", "Inajumuisha mwongozo binafsi wa siku 5 kutoka kwa Godwin kupitia WhatsApp. Baada ya siku 5, kuendelea kuongozwa ni hiari na hulipiwa tofauti."],
       note: ["Education only. Not medical advice. Speak to your doctor about any health concern.", "Kwa elimu tu. Si ushauri wa kitabibu. Zungumza na daktari wako kuhusu tatizo lolote la kiafya."],
       tzs: "60,000", usd: "", url: ""
     }
@@ -1645,11 +1648,23 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
       return '<a class="btn btn-deep" href="' + e.url + '" target="_blank" rel="noopener">' + b("Buy now", "Nunua sasa") + "</a>" +
              '<a class="btn btn-line" data-wa="' + key + '" href="#">' + b("Ask on WhatsApp", "Uliza WhatsApp") + "</a>";
     }
-    if (e.ready) return '<a class="btn btn-deep" data-wa="' + key + '" href="#">' + b("Buy now on WhatsApp", "Nunua sasa kwa WhatsApp") + "</a>";
+    if (e.ready) return '<a class="btn btn-deep" data-pick="' + e.id + '" href="#eb-pay">' + b("Buy now", "Nunua sasa") + "</a>";
     MSG[key] = { en: "Hi Godwin, please tell me when this ebook is available: " + e.title[0] + ". " + tag, sw: "Habari Godwin, tafadhali niambie kitabu hiki pepe kitakapopatikana: " + e.title[1] + ". " + tag };
     return '<a class="btn btn-deep" data-wa="' + key + '" href="#">' + b("Tell me when it is ready", "Niambie kitakapokuwa tayari") + "</a>";
   }
+  function pickEbook(id, init) {
+    var e = null; EBOOKS.forEach(function (x) { if (x.id === id) e = x; });
+    var el = document.getElementById("eb-sel");
+    if (el) el.innerHTML = e
+      ? b("You are buying: " + e.title[0] + ". Pay exactly TZS " + e.tzs + ".", "Unanunua: " + e.title[1] + ". Lipa TZS " + e.tzs + " kamili.")
+      : EBOOKS.filter(function (x) { return x.ready && x.tzs; }).map(function (x) { return b(x.title[0] + ": TZS " + x.tzs, x.title[1] + ": TZS " + x.tzs); }).join("<br>");
+    var what = e ? e.title : ["the ebook", "kitabu pepe"];
+    MSG["ebook-paid"] = { en: "Hi Godwin, I have paid for " + what[0] + (e ? " (TZS " + e.tzs + ")" : "") + ". Here is my payment message. [EBOOK-PAID]", sw: "Habari Godwin, nimelipia " + what[1] + (e ? " (TZS " + e.tzs + ")" : "") + ". Huu hapa ujumbe wa malipo yangu. [EBOOK-PAID]" };
+    if (!init) applyWA();
+  }
   document.addEventListener("click", function (ev) {
+    var pk = ev.target.closest && ev.target.closest("[data-pick]");
+    if (pk) pickEbook(pk.getAttribute("data-pick"));
     var t = ev.target.closest && ev.target.closest("[data-copy]");
     if (!t) return;
     var v = t.getAttribute("data-copy");
@@ -1657,6 +1672,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
     try { navigator.clipboard.writeText(v).then(done, done); } catch (e) { done(); }
   });
   function renderEbooks() {
+    pickEbook("", true);
     var art = document.getElementById("ebh-art");
     if (art) art.innerHTML = coverHTML("siri", false, true) + coverHTML("366", true, true);
     var el = document.getElementById("ebook-list");
@@ -1689,7 +1705,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
   }
   /* ---------- routing by #hash ---------- */
   var VIEWS = ["home", "wellness", "business", "training", "stories", "about", "ebooks", "legal"];
-  var SUBS = { course: "training", quiz: "training", progress: "training", "eb-shop": "ebooks", "eb-how": "ebooks" };
+  var SUBS = { course: "training", quiz: "training", progress: "training", "eb-shop": "ebooks", "eb-how": "ebooks", "eb-pay": "ebooks" };
   function route() {
     var h = (location.hash || "").replace("#", "");
     var sub = SUBS[h] ? h : null;
