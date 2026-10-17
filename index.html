@@ -597,6 +597,29 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
   .eb-sticky .btn { width: 100%; justify-content: center; }
   #v-ebooks { padding-bottom: 4.2rem; }
 }
+
+/* ebooks: product detail + also-take cards */
+.ebk { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 1.4rem 2.4rem; align-items: center; padding: 1.2rem; }
+.ebk-art { background: #F3E7C7; border-radius: .8rem; display: grid; place-items: center; padding: clamp(1.4rem, 5vw, 2.6rem); min-height: 100%; }
+.ebk-art .bk { max-width: 15rem; }
+.bkp img { display: block; width: 100%; height: auto; filter: drop-shadow(0 1rem 1.2rem rgba(6,78,59,.28)); }
+.ebk-art .bkp { width: 100%; max-width: 20rem; }
+.ebh-art .bkp-366 { position: absolute; width: 64%; right: 2%; top: 2%; z-index: 2; }
+.ebh-art .bkp-siri { position: absolute; width: 56%; left: 0; top: 22%; z-index: 1; }
+.eb-line { margin: 0; font: 700 .85rem var(--font-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-ink); }
+.eb-buy { border-top: 1px solid var(--line); padding-top: 1rem; display: grid; gap: .7rem; }
+.ebk .eb-buy .btn, .ebm .btns .btn { width: 100%; justify-content: center; text-align: center; }
+.eb-h2 { font: 400 clamp(1.5rem, 5vw, 2rem)/1.15 var(--font-serif); color: var(--deep); }
+.ebm-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.ebm { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.ebm-art { position: relative; background: #F3E7C7; display: grid; place-items: center; padding: 2.4rem 1.2rem 1.4rem; }
+.ebm-art .bk { max-width: 11.5rem; }
+.ebm-art .bkp { max-width: 14rem; width: 100%; }
+.ebm-badge { position: absolute; left: .8rem; top: .8rem; background: var(--gold); color: #111; font: 700 .72rem var(--font-ui); letter-spacing: .06em; text-transform: uppercase; padding: .3rem .6rem; border-radius: .2rem; }
+.ebm-body { padding: 1.1rem 1.2rem 1.3rem; display: grid; gap: .7rem; align-content: start; }
+.ebm-body h3 { font: 400 1.4rem/1.2 var(--font-serif); color: var(--deep); }
+.ebm-body .eb-price strong { font-size: 1.6rem; }
+@media (max-width: 40rem) { .ebk { grid-template-columns: minmax(0, 1fr); } .ebk .bk { max-width: 13rem; } }
 </style>
 
 <header class="top">
@@ -1191,6 +1214,10 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
         <p class="sw">Vitabu pepe viwili tofauti, kila kimoja na bei yake. Bonyeza Nunua sasa kuona jinsi ya kulipa.</p>
       </div>
       <div class="eb-list" id="ebook-list"></div>
+      <div id="ebook-more" class="stack-lg" hidden>
+        <h2 class="eb-h2"><span class="en">Readers also take</span><span class="sw">Wasomaji pia huchukua</span></h2>
+        <div class="ebm-grid" id="ebook-more-grid"></div>
+      </div>
       <div id="eb-bundle"></div>
       <p class="small en">The ebooks are for education and personal reflection. They are not medical advice, therapy or a replacement for a professional, and results differ for every person.</p>
       <p class="small sw">Vitabu pepe ni kwa elimu na tafakari binafsi. Si ushauri wa kitabibu, tiba ya kisaikolojia wala mbadala wa mtaalamu, na matokeo hutofautiana kwa kila mtu.</p>
@@ -1584,6 +1611,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
      tzs / usd : the price as text, for example tzs: "15,000", usd: "6". Leave empty until you have decided.
      url       : your Snippe checkout link for that ebook. While it is empty, "Buy now" opens WhatsApp.
      ready     : true shows Buy now. false shows "Coming soon" and a WhatsApp button to be told when it is ready. */
+  /* image: path to the book mockup, e.g. image: "img/ebook-366.png". Leave out to use the drawn cover. */
   var EBOOKS = [
     {
       id: "366", ready: true, cover: "366",
@@ -1634,6 +1662,10 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
     return '<div class="bk bk-siri"' + aria + '><div class="bk-in"><p class="bk-kick">Premium masterclass</p><p class="bk-t2">Siri Kamili</p><p class="bk-t3">ya Kupoteza Uzito</p>' +
       '<svg class="bk-leaf" viewBox="0 0 100 100" aria-hidden="true"><path d="M10 90C10 46 44 14 92 10 92 58 62 90 16 90Z"/><path d="M10 90L60 40"/></svg><p class="bk-by">Godwin</p></div></div>';
   }
+  function artHTML(e, live, decorative) {
+    if (!e.image) return coverHTML(e.cover, live, decorative);
+    return '<div class="bkp bkp-' + e.cover + '"><img src="' + e.image + '" alt="' + (decorative ? "" : "Cover of " + e.title[0]) + '" loading="lazy"></div>';
+  }
   function ebPrice(e) {
     if (!e.ready) return '<p class="eb-price soon">' + b("Coming soon", "Inakuja hivi karibuni") + "</p>";
     if (!e.tzs) return '<p class="eb-price ask">' + b("Message me for the price", "Nitumie ujumbe kujua bei") + "</p>";
@@ -1674,17 +1706,32 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
   function renderEbooks() {
     pickEbook("", true);
     var art = document.getElementById("ebh-art");
-    if (art) art.innerHTML = coverHTML("siri", false, true) + coverHTML("366", true, true);
+    if (art) art.innerHTML = artHTML(EBOOKS[1], false, true) + artHTML(EBOOKS[0], true, true);
     var el = document.getElementById("ebook-list");
     if (el) {
-      el.innerHTML = EBOOKS.map(function (e) {
-        return '<article class="ebk">' + coverHTML(e.cover, false, false) +
-          '<div class="ebk-body"><div class="eb-meta"><span class="eb-chip">' + b("Digital ebook", "Kitabu pepe") + '</span><span class="eb-chip">' + b(e.lang[0], e.lang[1]) + "</span>" +
-          (e.ready ? "" : '<span class="eb-chip soon">' + b("Coming soon", "Inakuja hivi karibuni") + "</span>") + "</div>" +
-          "<h3>" + b(e.title[0], e.title[1]) + '</h3><p class="eb-sub">' + b(e.sub[0], e.sub[1]) + "</p><p>" + b(e.outcome[0], e.outcome[1]) + "</p>" +
+      var f = EBOOKS[0];
+      el.innerHTML = '<article class="ebk">' +
+        '<div class="ebk-art">' + artHTML(f, false, false) + "</div>" +
+        '<div class="ebk-body"><p class="eb-line">' + b(f.lang[0] + " \u00b7 Digital ebook", f.lang[1] + " \u00b7 Kitabu pepe") + "</p>" +
+        "<h3>" + b(f.title[0], f.title[1]) + '</h3><p class="eb-sub">' + b(f.sub[0], f.sub[1]) + "</p><p>" + b(f.outcome[0], f.outcome[1]) + "</p>" +
+        '<ul class="checks">' + f.takes.map(function (t) { return "<li>" + b(t[0], t[1]) + "</li>"; }).join("") + "</ul>" +
+        (f.perk ? '<p class="eb-perk">' + b(f.perk[0], f.perk[1]) + "</p>" : "") +
+        '<div class="eb-buy">' + ebPrice(f) + '<div class="btns">' + ebButtons(f) + "</div></div>" +
+        (f.note ? '<p class="small">' + b(f.note[0], f.note[1]) + "</p>" : "") + "</div></article>";
+    }
+    var more = document.getElementById("ebook-more");
+    if (more) {
+      var rest = EBOOKS.slice(1);
+      more.hidden = !rest.length;
+      var mg = document.getElementById("ebook-more-grid");
+      if (mg) mg.innerHTML = rest.map(function (e) {
+        return '<article class="ebm"><div class="ebm-art">' + (e.perk ? '<span class="ebm-badge">' + b("Includes 5-day guidance", "Mwongozo wa siku 5 umo") + "</span>" : "") + artHTML(e, false, false) + "</div>" +
+          '<div class="ebm-body"><h3>' + b(e.title[0], e.title[1]) + "</h3>" + ebPrice(e) +
+          '<p class="eb-line">' + b(e.lang[0] + " \u00b7 Digital ebook", e.lang[1] + " \u00b7 Kitabu pepe") + "</p>" +
+          '<p class="eb-sub">' + b(e.sub[0], e.sub[1]) + "</p>" +
           '<ul class="checks">' + e.takes.map(function (t) { return "<li>" + b(t[0], t[1]) + "</li>"; }).join("") + "</ul>" +
-          (e.perk ? '<p class="eb-perk">' + b(e.perk[0], e.perk[1]) + "</p>" : "") + ebPrice(e) + '<div class="btns">' + ebButtons(e) + "</div>" +
-          (e.note ? '<p class="small">' + b(e.note[0], e.note[1]) + "</p>" : "") + "</div></article>";
+          (e.perk ? '<p class="eb-perk">' + b(e.perk[0], e.perk[1]) + "</p>" : "") +
+          '<div class="btns">' + ebButtons(e) + "</div>" + (e.note ? '<p class="small">' + b(e.note[0], e.note[1]) + "</p>" : "") + "</div></article>";
       }).join("");
     }
     var rv = document.getElementById("eb-reviews-list");
