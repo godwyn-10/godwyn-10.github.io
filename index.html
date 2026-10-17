@@ -602,6 +602,11 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 .ebk { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 1.4rem 2.4rem; align-items: center; padding: 1.2rem; }
 .ebk-art { background: #F3E7C7; border-radius: .8rem; display: grid; place-items: center; padding: clamp(1.4rem, 5vw, 2.6rem); min-height: 100%; }
 .ebk-art .bk { max-width: 15rem; }
+.bkp-siri img { border-radius: .7rem; }
+.ebh-art .bkp-siri { transform: rotate(-6deg); }
+.ebm-art:has(.bkp) { padding: 0; }
+.ebm-art:has(.bkp) .bkp { max-width: none; width: 100%; }
+.ebm-art .bkp-siri img { border-radius: 0; filter: none; }
 .bkp img { display: block; width: 100%; height: auto; filter: drop-shadow(0 1rem 1.2rem rgba(6,78,59,.28)); }
 .ebk-art .bkp { width: 100%; max-width: 20rem; }
 .ebh-art .bkp-366 { position: absolute; width: 64%; right: 2%; top: 2%; z-index: 2; }
@@ -619,6 +624,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 .ebm-body { padding: 1.1rem 1.2rem 1.3rem; display: grid; gap: .7rem; align-content: start; }
 .ebm-body h3 { font: 400 1.4rem/1.2 var(--font-serif); color: var(--deep); }
 .ebm-body .eb-price strong { font-size: 1.6rem; }
+@media (min-width: 52rem) { .ebm:only-child { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); grid-template-rows: auto; } .ebm:only-child .ebm-body { align-content: center; padding: 1.6rem; } }
 @media (max-width: 40rem) { .ebk { grid-template-columns: minmax(0, 1fr); } .ebk .bk { max-width: 13rem; } }
 </style>
 
@@ -1627,7 +1633,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
       tzs: "35,000", usd: "", url: ""
     },
     {
-      id: "siri", ready: true, cover: "siri",
+      id: "siri", ready: true, cover: "siri", image: "img/ebook-siri-mockup.jpg",
       title: ["Siri Kamili ya Kupoteza Uzito", "Siri Kamili ya Kupoteza Uzito"],
       sub: ["A Swahili premium masterclass on fruits, vegetables, eating habits and the discipline behind a healthy routine.", "Masterclass ya kipekee kwa Kiswahili kuhusu matunda, mboga, tabia za kula na nidhamu nyuma ya ratiba ya afya."],
       lang: ["Kiswahili", "Kiswahili"],
