@@ -602,7 +602,10 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 .ebk { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 1.4rem 2.4rem; align-items: center; padding: 1.2rem; }
 .ebk-art { background: #F3E7C7; border-radius: .8rem; display: grid; place-items: center; padding: clamp(1.4rem, 5vw, 2.6rem); min-height: 100%; }
 .ebk-art .bk { max-width: 15rem; }
-.bkp-siri img { border-radius: .7rem; }
+.bkp-siri img, .bkp-366 img { border-radius: .7rem; }
+.ebk-art:has(.bkp) { padding: 0; overflow: hidden; }
+.ebk-art:has(.bkp) .bkp { max-width: none; width: 100%; }
+.ebk-art .bkp img { border-radius: 0; filter: none; }
 .ebh-art .bkp-siri { transform: rotate(-6deg); }
 .ebm-art:has(.bkp) { padding: 0; }
 .ebm-art:has(.bkp) .bkp { max-width: none; width: 100%; }
@@ -1620,7 +1623,7 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
   /* image: path to the book mockup, e.g. image: "img/ebook-366.png". Leave out to use the drawn cover. */
   var EBOOKS = [
     {
-      id: "366", ready: true, cover: "366",
+      id: "366", ready: true, cover: "366", image: "img/ebook-366-mockup.jpg",
       title: ["366 Things to Do Alone", "366 Things to Do Alone"],
       sub: ["A guided journal for building emotional independence, self-awareness and personal grounding, one day at a time.", "Shajara ya kujiongoza ya kujenga uhuru wa kihisia, kujijua na utulivu wa ndani, siku moja baada ya nyingine."],
       lang: ["English", "Kiingereza"],
