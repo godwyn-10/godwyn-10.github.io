@@ -1339,11 +1339,6 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
           <p class="sw">Nitumie ujumbe WhatsApp uniambie ulipo. Nitakusaidia kupata njia ya kulipa.</p>
         </details>
         <details class="faq">
-          <summary><span class="en">What is the 5 days of personal guidance?</span><span class="sw">Mwongozo binafsi wa siku 5 ni nini?</span></summary>
-          <p class="en">Siri Kamili ya Kupoteza Uzito includes 5 days of personal guidance from me on WhatsApp. After the 5 days, continued guidance is optional and paid separately. Message me if you want it.</p>
-          <p class="sw">Siri Kamili ya Kupoteza Uzito inajumuisha mwongozo binafsi kutoka kwangu kwa siku 5 kupitia WhatsApp. Baada ya siku 5, kuendelea kuongozwa ni hiari na hulipiwa tofauti. Nitumie ujumbe ukitaka.</p>
-        </details>
-        <details class="faq">
           <summary><span class="en">Which ebook should I start with?</span><span class="sw">Nianze na kitabu pepe kipi?</span></summary>
           <p class="en">Tell me where you are right now and what you want to change. I will point you to the one that fits.</p>
           <p class="sw">Niambie ulipo sasa na unachotaka kubadilisha. Nitakuelekeza kwenye kinachokufaa.</p>
@@ -1648,21 +1643,6 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
       price: 35000
     },
     {
-      id: "siri", ready: true, cover: "siri", image: "img/ebook-siri-mockup.jpg",
-      title: ["Siri Kamili ya Kupoteza Uzito", "Siri Kamili ya Kupoteza Uzito"],
-      sub: ["A Swahili premium masterclass on fruits, vegetables, eating habits and the discipline behind a healthy routine.", "Masterclass ya kipekee kwa Kiswahili kuhusu matunda, mboga, tabia za kula na nidhamu nyuma ya ratiba ya afya."],
-      lang: ["Kiswahili", "Kiswahili"],
-      outcome: ["Understand how hunger, food choices and daily habits fit together, and build a routine you can keep.", "Elewa jinsi njaa, uchaguzi wa chakula na mazoea ya kila siku vinavyohusiana, na ujenge ratiba unayoweza kuidumisha."],
-      takes: [
-        ["A practical guide to fruits and vegetables, and how to prepare them", "Mwongozo wa vitendo wa matunda na mboga, na jinsi ya kuvitayarisha"],
-        ["Eating habits explained step by step", "Tabia za kula zilizoelezwa hatua kwa hatua"],
-        ["A 30-day plan to build the routine, and the mindset to stay consistent", "Mpango wa siku 30 wa kujenga ratiba, na mtazamo wa kuendelea"]
-      ],
-      perk: ["Includes 5 days of personal guidance from Godwin on WhatsApp. After day 5, continued guidance is optional and paid separately.", "Inajumuisha mwongozo binafsi wa siku 5 kutoka kwa Godwin kupitia WhatsApp. Baada ya siku 5, kuendelea kuongozwa ni hiari na hulipiwa tofauti."],
-      note: ["Education only. Not medical advice. Speak to your doctor about any health concern.", "Kwa elimu tu. Si ushauri wa kitabibu. Zungumza na daktari wako kuhusu tatizo lolote la kiafya."],
-      price: 60000
-    },
-    {
       id: "kupunguza", ready: true, cover: "kupunguza", image: "img/ebook-kupunguza-mockup.jpg",
       title: ["Siri Kamili ya Kupunguza Uzito", "Siri Kamili ya Kupunguza Uzito"],
       sub: ["A Swahili guide to healthy eating, safe detox, eating habits and a life plan built around a healthy weight.", "Mwongozo kamili wa lishe bora, detox salama, tabia za kula, na mpango wa maisha yenye uzito bora."],
@@ -1688,11 +1668,11 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
     return s + "</svg>";
   }
   function coverHTML(kind, live, decorative) {
-    var aria = decorative ? ' aria-hidden="true"' : ' role="img" aria-label="' + (kind === "366" ? "Cover of 366 Things to Do Alone by Godwin Vicent" : "Cover of Siri Kamili ya Kupoteza Uzito by Godwin") + '"';
+    var aria = decorative ? ' aria-hidden="true"' : ' role="img" aria-label="' + (kind === "366" ? "Cover of 366 Things to Do Alone by Godwin Vicent" : "Ebook cover") + '"';
     if (kind === "366") {
       return '<div class="bk bk-366"' + aria + '><div class="bk-in"><p class="bk-num">366</p><p class="bk-t">Things to Do Alone</p>' + dotsSVG(live) + '<p class="bk-by"><i class="gv-logo gv-sm"></i>Godwin Vicent</p></div></div>';
     }
-    return '<div class="bk bk-siri"' + aria + '><div class="bk-in"><p class="bk-kick">Premium masterclass</p><p class="bk-t2">Siri Kamili</p><p class="bk-t3">ya Kupoteza Uzito</p>' +
+    return '<div class="bk bk-siri"' + aria + '><div class="bk-in"><p class="bk-kick">Premium masterclass</p><p class="bk-t2">Ebook</p>' +
       '<svg class="bk-leaf" viewBox="0 0 100 100" aria-hidden="true"><path d="M10 90C10 46 44 14 92 10 92 58 62 90 16 90Z"/><path d="M10 90L60 40"/></svg><p class="bk-by">Godwin</p></div></div>';
   }
   function artHTML(e, live, decorative) {
