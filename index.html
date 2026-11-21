@@ -483,9 +483,15 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 .ebh .btns { gap: .6rem; }
 .ebh .btn { padding: clamp(.5rem, 1.9vw, .8rem) clamp(.8rem, 3vw, 1.4rem); font-size: clamp(.62rem, 2.2vw, .85rem); }
 .btn-deep { background: var(--deep); color: #F7F4EA; }
-.ebh-art { position: relative; aspect-ratio: 1 / 1.12; width: 100%; max-width: 30rem; justify-self: end; margin-right: -.5rem; min-width: 0; }
-.ebh-art .bk-366 { position: absolute; width: 64%; right: 2%; top: 2%; transform: rotate(3deg); z-index: 2; }
-.ebh-art .bk-siri { position: absolute; width: 56%; left: 0; top: 22%; transform: rotate(-8deg); z-index: 1; }
+.ebh-art { container-type: inline-size; position: relative; width: 100%; max-width: 30rem; justify-self: end; min-width: 0; overflow: hidden; padding-block: 1.2cqw; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+.ebh-track { display: flex; width: max-content; padding-right: 4cqw; animation: ebhSlide calc(var(--n, 3) * 5s) linear infinite; }
+.ebh-dup { display: contents; }
+.ebh-slide { flex: none; width: 68cqw; margin-right: 4cqw; }
+.ebh-slide .bkp { width: 100%; }
+.ebh-slide .bkp img { aspect-ratio: 5 / 6; object-fit: cover; object-position: center top; border-radius: 2.5cqw; filter: none; box-shadow: 0 2cqw 4cqw rgba(6,78,59,.28); }
+.ebh-art:hover .ebh-track, .ebh-art:focus-within .ebh-track { animation-play-state: paused; }
+@keyframes ebhSlide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ebh-art { overflow-x: auto; scroll-snap-type: x mandatory; } .ebh-track { animation: none; } .ebh-dup { display: none; } .ebh-slide { scroll-snap-align: center; } }
 
 /* book covers: drawn in CSS, sized with container units */
 .bk { position: relative; container-type: inline-size; aspect-ratio: 5 / 7; width: 100%; overflow: hidden; border-radius: .2rem .5rem .5rem .2rem; color: #F7F4EA; box-shadow: 0 1.1rem 2rem rgba(6,78,59,.3), 0 .2rem .5rem rgba(0,0,0,.18); }
@@ -593,14 +599,11 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
 .ebk-art:has(.bkp) { padding: 0; overflow: hidden; }
 .ebk-art:has(.bkp) .bkp { max-width: none; width: 100%; }
 .ebk-art .bkp img { border-radius: 0; filter: none; }
-.ebh-art .bkp-siri { transform: rotate(-6deg); }
 .ebm-art:has(.bkp) { padding: 0; }
 .ebm-art:has(.bkp) .bkp { max-width: none; width: 100%; }
 .ebm-art .bkp-siri img { border-radius: 0; filter: none; }
 .bkp img { display: block; width: 100%; height: auto; filter: drop-shadow(0 1rem 1.2rem rgba(6,78,59,.28)); }
 .ebk-art .bkp { width: 100%; max-width: 20rem; }
-.ebh-art .bkp-366 { position: absolute; width: 64%; right: 2%; top: 2%; z-index: 2; }
-.ebh-art .bkp-siri { position: absolute; width: 56%; left: 0; top: 22%; z-index: 1; }
 .eb-line { margin: 0; font: 700 .85rem var(--font-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-ink); }
 .eb-buy { border-top: 1px solid var(--line); padding-top: 1rem; display: grid; gap: .7rem; }
 .ebk .eb-buy .btn, .ebm .btns .btn { width: 100%; justify-content: center; text-align: center; }
@@ -1187,8 +1190,8 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
       <div class="ebh-text">
         <p class="ebh-pre"><span class="en">Godwin Vicent, The Growth Architect, presents</span><span class="sw">Godwin Vicent, Mjenzi wa Ukuaji, anawasilisha</span></p>
         <h1><span class="en">Build a steadier mind, one day at a time.</span><span class="sw">Jenga akili thabiti zaidi, siku moja baada ya nyingine.</span></h1>
-        <p class="lead en">Two practical ebooks on mindset, discipline and daily habits. Read them on your phone and start using them this week. From TSh 35,000.</p>
-        <p class="lead sw">Vitabu pepe viwili vya vitendo kuhusu mtazamo, nidhamu na mazoea ya kila siku. Visome kwenye simu yako na uanze kuvitumia wiki hii. Kuanzia TSh 35,000.</p>
+        <p class="lead en">Practical ebooks on mindset, discipline and daily habits. Read them on your phone and start using them this week.</p>
+        <p class="lead sw">Vitabu pepe vya vitendo kuhusu mtazamo, nidhamu na mazoea ya kila siku. Visome kwenye simu yako na uanze kuvitumia wiki hii.</p>
         <div class="btns">
           <a class="btn btn-deep" href="#eb-shop"><span class="en">See the ebooks and prices</span><span class="sw">Tazama vitabu pepe na bei</span></a>
           <a class="btn btn-line" href="#eb-how"><span class="en">How ordering works</span><span class="sw">Jinsi ya kuagiza</span></a>
@@ -1658,6 +1661,21 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
       perk: ["Includes 5 days of personal guidance from Godwin on WhatsApp. After day 5, continued guidance is optional and paid separately.", "Inajumuisha mwongozo binafsi wa siku 5 kutoka kwa Godwin kupitia WhatsApp. Baada ya siku 5, kuendelea kuongozwa ni hiari na hulipiwa tofauti."],
       note: ["Education only. Not medical advice. Speak to your doctor about any health concern.", "Kwa elimu tu. Si ushauri wa kitabibu. Zungumza na daktari wako kuhusu tatizo lolote la kiafya."],
       price: 60000
+    },
+    {
+      id: "kupunguza", ready: true, cover: "kupunguza", image: "img/ebook-kupunguza-mockup.jpg",
+      title: ["Siri Kamili ya Kupunguza Uzito", "Siri Kamili ya Kupunguza Uzito"],
+      sub: ["A Swahili guide to healthy eating, safe detox, eating habits and a life plan built around a healthy weight.", "Mwongozo kamili wa lishe bora, detox salama, tabia za kula, na mpango wa maisha yenye uzito bora."],
+      lang: ["Kiswahili", "Kiswahili"],
+      outcome: ["A practical guide that is easy to follow, to understand your eating habits and build a routine you can keep.", "Mwongozo wa kivitendo na rahisi kufuata wa kuelewa tabia zako za kula na kujenga ratiba unayoweza kuidumisha."],
+      takes: [
+        ["A full list of fruits and vegetables", "Orodha kamili ya matunda na mboga"],
+        ["Eating habits that work, explained simply", "Tabia za kula zinazofanya kazi"],
+        ["Discipline for a healthy-weight routine", "Nidhamu ya kupoteza uzito"],
+        ["A 30-day plan", "Mpango wa siku 30"]
+      ],
+      note: ["Education only. Not medical advice. Speak to your doctor about any health concern.", "Kwa elimu tu. Si ushauri wa kitabibu. Zungumza na daktari wako kuhusu tatizo lolote la kiafya."],
+      price: 15000
     }
   ];
   /* Reviews: only add real ones from real readers, with their permission.
@@ -1787,7 +1805,11 @@ h1.script-h1::after { content: ""; display: block; width: 6rem; height: 3px; bac
   function renderEbooks() {
     loadCart();
     var art = document.getElementById("ebh-art");
-    if (art) art.innerHTML = artHTML(EBOOKS[1], false, true) + artHTML(EBOOKS[0], true, true);
+    if (art) {
+      var slides = function (hide) { return EBOOKS.map(function (e) { return '<div class="ebh-slide">' + artHTML(e, false, hide) + "</div>"; }).join(""); };
+      art.style.setProperty("--n", EBOOKS.length);
+      art.innerHTML = '<div class="ebh-track">' + slides(false) + '<div class="ebh-dup" aria-hidden="true">' + slides(true) + "</div></div>";
+    }
     renderCatalog();
     var rv = document.getElementById("eb-reviews-list");
     if (rv) {
